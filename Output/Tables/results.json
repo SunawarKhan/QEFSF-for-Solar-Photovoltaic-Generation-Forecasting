@@ -1,0 +1,827 @@
+{
+  "data_info": {
+    "n_rows": 196776,
+    "n_cols": 17,
+    "t_start": "2017-01-01 00:00:00",
+    "t_end": "2022-08-31 17:45:00",
+    "n_missing": 0,
+    "n_dupes": 0,
+    "target_mean": 573.0082276293857,
+    "target_std": 1044.8240465413896,
+    "target_max": 5020.0,
+    "zero_frac": 0.5125116884172867,
+    "issun_frac": 0.5199617839573932,
+    "daytime_median": 524.0
+  },
+  "corr_with_target": {
+    "wind_speed": 0.0294,
+    "month": -0.0493,
+    "snow_1h": -0.0509,
+    "rain_1h": -0.0599,
+    "hour": -0.0809,
+    "pressure": 0.1152,
+    "weather_type": -0.17,
+    "clouds_all": -0.1902,
+    "dayLength": 0.2807,
+    "temp": 0.3786,
+    "SunlightTime/daylength": 0.4025,
+    "sunlightTime": 0.4373,
+    "isSun": 0.527,
+    "humidity": -0.5444,
+    "GHI": 0.9146
+  },
+  "prescreen": {
+    "kept": [
+      "GHI",
+      "temp",
+      "pressure",
+      "humidity",
+      "clouds_all",
+      "isSun",
+      "sunlightTime",
+      "dayLength",
+      "SunlightTime/daylength",
+      "weather_type"
+    ],
+    "dropped": [
+      [
+        "wind_speed",
+        0.029
+      ],
+      [
+        "rain_1h",
+        0.06
+      ],
+      [
+        "snow_1h",
+        0.051
+      ],
+      [
+        "hour",
+        0.081
+      ],
+      [
+        "month",
+        0.049
+      ]
+    ],
+    "n_kept": 10
+  },
+  "qubo": {
+    "alpha": 4.0,
+    "beta": 1.0,
+    "gamma": 2.0,
+    "k": 5,
+    "relevance": {
+      "GHI": 1.0,
+      "temp": 0.4139,
+      "pressure": 0.126,
+      "humidity": 0.5952,
+      "clouds_all": 0.208,
+      "isSun": 0.5761,
+      "sunlightTime": 0.4781,
+      "dayLength": 0.3069,
+      "SunlightTime/daylength": 0.4401,
+      "weather_type": 0.1859
+    },
+    "E_opt": -7.631435,
+    "optimal_features": [
+      "GHI",
+      "temp",
+      "humidity",
+      "clouds_all",
+      "isSun"
+    ],
+    "n_states": 1024
+  },
+  "optimizers": {
+    "GA": {
+      "mean": -7.6314346249627025,
+      "std": 1.7763568394002505e-15,
+      "best": -7.631434624962701,
+      "hit": 10,
+      "n_seeds": 10,
+      "approx_ratio": 1.0000000000000002,
+      "time_ms": 60.045504570007324,
+      "selected": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ],
+      "n_sel": 5
+    },
+    "PSO": {
+      "mean": -7.6314346249627025,
+      "std": 1.7763568394002505e-15,
+      "best": -7.631434624962701,
+      "hit": 10,
+      "n_seeds": 10,
+      "approx_ratio": 1.0000000000000002,
+      "time_ms": 10.134601593017578,
+      "selected": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ],
+      "n_sel": 5
+    },
+    "QPSO": {
+      "mean": -7.613486251754398,
+      "std": 0.053845119624908476,
+      "best": -7.631434624962701,
+      "hit": 9,
+      "n_seeds": 10,
+      "approx_ratio": 0.997648099723007,
+      "time_ms": 44.995737075805664,
+      "selected": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ],
+      "n_sel": 5
+    },
+    "QIEA": {
+      "mean": -7.628186709885202,
+      "std": 0.00974374523249466,
+      "best": -7.631434624962701,
+      "hit": 9,
+      "n_seeds": 10,
+      "approx_ratio": 0.9995744030792225,
+      "time_ms": 17.008423805236816,
+      "selected": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ],
+      "n_sel": 5
+    },
+    "QGA": {
+      "mean": -7.6314346249627025,
+      "std": 1.7763568394002505e-15,
+      "best": -7.631434624962701,
+      "hit": 10,
+      "n_seeds": 10,
+      "approx_ratio": 1.0000000000000002,
+      "time_ms": 26.573491096496582,
+      "selected": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ],
+      "n_sel": 5
+    },
+    "QAOA": {
+      "mean": -7.631434624962701,
+      "std": 0.0,
+      "best": -7.631434624962701,
+      "hit": 1,
+      "n_seeds": 5,
+      "approx_ratio": 1.0,
+      "time_ms": 48369.3573474884,
+      "selected": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ],
+      "n_sel": 5,
+      "expval": -0.07337420320536836
+    }
+  },
+  "forecast_split_date": "2021-07-04 18:45:00",
+  "forecast": {
+    "GA": {
+      "metrics": {
+        "rmse": 405.72284797915427,
+        "mae": 189.14844406608998,
+        "r2": 0.8497077133046459
+      },
+      "n_feat": 5,
+      "features": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ]
+    },
+    "PSO": {
+      "metrics": {
+        "rmse": 405.72284797915427,
+        "mae": 189.14844406608998,
+        "r2": 0.8497077133046459
+      },
+      "n_feat": 5,
+      "features": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ]
+    },
+    "QPSO": {
+      "metrics": {
+        "rmse": 405.72284797915427,
+        "mae": 189.14844406608998,
+        "r2": 0.8497077133046459
+      },
+      "n_feat": 5,
+      "features": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ]
+    },
+    "QIEA": {
+      "metrics": {
+        "rmse": 405.72284797915427,
+        "mae": 189.14844406608998,
+        "r2": 0.8497077133046459
+      },
+      "n_feat": 5,
+      "features": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ]
+    },
+    "QGA": {
+      "metrics": {
+        "rmse": 405.72284797915427,
+        "mae": 189.14844406608998,
+        "r2": 0.8497077133046459
+      },
+      "n_feat": 5,
+      "features": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ]
+    },
+    "QAOA": {
+      "metrics": {
+        "rmse": 405.72284797915427,
+        "mae": 189.14844406608998,
+        "r2": 0.8497077133046459
+      },
+      "n_feat": 5,
+      "features": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ]
+    },
+    "ALL10": {
+      "metrics": {
+        "rmse": 322.5114160499919,
+        "mae": 130.60439014002827,
+        "r2": 0.9050340437250717
+      },
+      "n_feat": 10,
+      "features": [
+        "GHI",
+        "temp",
+        "pressure",
+        "humidity",
+        "clouds_all",
+        "isSun",
+        "sunlightTime",
+        "dayLength",
+        "SunlightTime/daylength",
+        "weather_type"
+      ]
+    },
+    "OPTIMAL": {
+      "metrics": {
+        "rmse": 405.72284797915427,
+        "mae": 189.14844406608998,
+        "r2": 0.8497077133046459
+      },
+      "n_feat": 5,
+      "features": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ],
+      "perm_importance": {
+        "GHI": 1.664,
+        "temp": 0.105,
+        "humidity": 0.011,
+        "clouds_all": 0.009,
+        "isSun": 0.0
+      }
+    }
+  },
+  "vqc": {
+    "features": [
+      "GHI",
+      "temp",
+      "humidity",
+      "clouds_all"
+    ],
+    "median_threshold": 524.0,
+    "n_train": 600,
+    "n_test": 400,
+    "train": {
+      "acc": 0.8833333333333333,
+      "precision": 0.9356060606060606,
+      "recall": 0.8233333333333334,
+      "f1": 0.8758865248226951,
+      "auc": 0.9552555555555555,
+      "cm": [
+        [
+          283,
+          17
+        ],
+        [
+          53,
+          247
+        ]
+      ]
+    },
+    "test": {
+      "acc": 0.875,
+      "precision": 0.890625,
+      "recall": 0.855,
+      "f1": 0.8724489795918368,
+      "auc": 0.94725,
+      "cm": [
+        [
+          179,
+          21
+        ],
+        [
+          29,
+          171
+        ]
+      ]
+    },
+    "baselines": {
+      "LogReg": 0.875,
+      "SVM-RBF": 0.885,
+      "HGB-clf": 0.8675
+    },
+    "time_s": 113.3
+  },
+  "ablation": {
+    "cardinality_k": {
+      "3": {
+        "n_sel": 3,
+        "selected": [
+          "GHI",
+          "humidity",
+          "isSun"
+        ],
+        "rmse": 453.0480965240931,
+        "mae": 214.8681988989053,
+        "r2": 0.81260138290909,
+        "E_opt": -7.093828796113019
+      },
+      "4": {
+        "n_sel": 4,
+        "selected": [
+          "GHI",
+          "humidity",
+          "clouds_all",
+          "isSun"
+        ],
+        "rmse": 452.4931931089336,
+        "mae": 215.08101888077078,
+        "r2": 0.8130601617889703,
+        "E_opt": -7.448800164136877
+      },
+      "5": {
+        "n_sel": 5,
+        "selected": [
+          "GHI",
+          "temp",
+          "humidity",
+          "clouds_all",
+          "isSun"
+        ],
+        "rmse": 405.72284797915427,
+        "mae": 189.14844406608998,
+        "r2": 0.8497077133046459,
+        "E_opt": -7.631434624962701
+      },
+      "6": {
+        "n_sel": 6,
+        "selected": [
+          "GHI",
+          "temp",
+          "pressure",
+          "humidity",
+          "clouds_all",
+          "isSun"
+        ],
+        "rmse": 403.0720293902089,
+        "mae": 188.04529195398587,
+        "r2": 0.8516651880196232,
+        "E_opt": -7.57282997483432
+      },
+      "7": {
+        "n_sel": 7,
+        "selected": [
+          "GHI",
+          "temp",
+          "pressure",
+          "humidity",
+          "clouds_all",
+          "isSun",
+          "SunlightTime/daylength"
+        ],
+        "rmse": 348.5190986613736,
+        "mae": 147.54297542683943,
+        "r2": 0.889100158372587,
+        "E_opt": -7.169787205317846
+      }
+    },
+    "redundancy_beta": {
+      "0.0": {
+        "n_sel": 5,
+        "selected": [
+          "GHI",
+          "humidity",
+          "isSun",
+          "sunlightTime",
+          "SunlightTime/daylength"
+        ],
+        "rmse": 332.3298281466921,
+        "r2": 0.8991638147352093,
+        "mean_redundancy": 0.6205
+      },
+      "0.5": {
+        "n_sel": 5,
+        "selected": [
+          "GHI",
+          "temp",
+          "humidity",
+          "isSun",
+          "sunlightTime"
+        ],
+        "rmse": 380.24871627061583,
+        "r2": 0.8679880413671149,
+        "mean_redundancy": 0.5333
+      },
+      "1.0": {
+        "n_sel": 5,
+        "selected": [
+          "GHI",
+          "temp",
+          "humidity",
+          "clouds_all",
+          "isSun"
+        ],
+        "rmse": 405.72284797915427,
+        "r2": 0.8497077133046459,
+        "mean_redundancy": 0.3542
+      },
+      "2.0": {
+        "n_sel": 5,
+        "selected": [
+          "GHI",
+          "temp",
+          "pressure",
+          "clouds_all",
+          "isSun"
+        ],
+        "rmse": 407.9463963115832,
+        "r2": 0.8480558571110879,
+        "mean_redundancy": 0.219
+      }
+    },
+    "qaoa_depth": {
+      "1": {
+        "energy": -7.631434624962701,
+        "approx_ratio": 1.0,
+        "hit": 1,
+        "expval": -0.07337420320536836,
+        "time_s": 28.7,
+        "n_params": 2
+      },
+      "2": {
+        "energy": -7.457104779981705,
+        "approx_ratio": 0.9771563469323636,
+        "hit": 0,
+        "expval": -1.6061023667964633,
+        "time_s": 45.9,
+        "n_params": 4
+      },
+      "3": {
+        "energy": -7.631434624962701,
+        "approx_ratio": 1.0,
+        "hit": 1,
+        "expval": -3.7007360565414444,
+        "time_s": 64.0,
+        "n_params": 6
+      }
+    },
+    "vqc_depth": {
+      "1": {
+        "acc": 0.62,
+        "f1": 0.6310679611650486,
+        "auc": 0.667925
+      },
+      "2": {
+        "acc": 0.765,
+        "f1": 0.7661691542288558,
+        "auc": 0.847675
+      },
+      "3": {
+        "acc": 0.875,
+        "f1": 0.8724489795918368,
+        "auc": 0.94725
+      }
+    },
+    "qga_theta": {
+      "0.01": {
+        "mean": -7.6314346249627025,
+        "std": 1.7763568394002505e-15,
+        "hit": 10
+      },
+      "0.025": {
+        "mean": -7.628186709885202,
+        "std": 0.00974374523249466,
+        "hit": 9
+      },
+      "0.05": {
+        "mean": -7.6314346249627025,
+        "std": 1.7763568394002505e-15,
+        "hit": 10
+      },
+      "0.1": {
+        "mean": -7.60677789623775,
+        "std": 0.053862854958481095,
+        "hit": 7
+      }
+    }
+  },
+  "radar": {
+    "names": [
+      "GA",
+      "PSO",
+      "QPSO",
+      "QIEA",
+      "QGA",
+      "QAOA"
+    ],
+    "quality": [
+      1.0000000000000002,
+      1.0000000000000002,
+      0.997648099723007,
+      0.9995744030792225,
+      1.0000000000000002,
+      1.0
+    ],
+    "reliability": [
+      1.0,
+      1.0,
+      0.9,
+      0.9,
+      1.0,
+      0.2
+    ],
+    "stability": [
+      0.999999999999967,
+      0.999999999999967,
+      1.857181075592962e-11,
+      0.8190412557314425,
+      0.999999999999967,
+      1.0
+    ],
+    "speed": [
+      0.7899637230467352,
+      1.0,
+      0.8240265606166026,
+      0.9388769134339647,
+      0.8862003720709553,
+      2.7189361873070084e-13
+    ]
+  },
+  "revision_analyses": {
+    "leakage_check": {
+      "corr_full": {
+        "GHI": 0.9146,
+        "temp": 0.3786,
+        "pressure": 0.1152,
+        "humidity": 0.5444,
+        "wind_speed": 0.0294,
+        "rain_1h": 0.0599,
+        "snow_1h": 0.0509,
+        "clouds_all": 0.1902,
+        "isSun": 0.527,
+        "sunlightTime": 0.4373,
+        "dayLength": 0.2807,
+        "SunlightTime/daylength": 0.4025,
+        "weather_type": 0.17,
+        "hour": 0.0809,
+        "month": 0.0493
+      },
+      "corr_train": {
+        "GHI": 0.9179,
+        "temp": 0.383,
+        "pressure": 0.1121,
+        "humidity": 0.5449,
+        "wind_speed": 0.0318,
+        "rain_1h": 0.0583,
+        "snow_1h": 0.0524,
+        "clouds_all": 0.1989,
+        "isSun": 0.5259,
+        "sunlightTime": 0.4388,
+        "dayLength": 0.2868,
+        "SunlightTime/daylength": 0.4018,
+        "weather_type": 0.1769,
+        "hour": 0.0807,
+        "month": 0.0442
+      },
+      "max_abs_corr_shift": 0.0086,
+      "kept_full": [
+        "GHI",
+        "temp",
+        "pressure",
+        "humidity",
+        "clouds_all",
+        "isSun",
+        "sunlightTime",
+        "dayLength",
+        "SunlightTime/daylength",
+        "weather_type"
+      ],
+      "kept_train": [
+        "GHI",
+        "temp",
+        "pressure",
+        "humidity",
+        "clouds_all",
+        "isSun",
+        "sunlightTime",
+        "dayLength",
+        "SunlightTime/daylength",
+        "weather_type"
+      ],
+      "kept_identical": true,
+      "qubo_subset_full": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ],
+      "qubo_subset_train": [
+        "GHI",
+        "temp",
+        "humidity",
+        "clouds_all",
+        "isSun"
+      ],
+      "qubo_subset_identical": true
+    },
+    "conventional_fs_baselines": {
+      "QUBO-optimal": {
+        "features": [
+          "GHI",
+          "temp",
+          "humidity",
+          "clouds_all",
+          "isSun"
+        ],
+        "metrics": {
+          "rmse": 405.72284797915427,
+          "mae": 189.14844406608998,
+          "r2": 0.8497077133046459
+        }
+      },
+      "mRMR": {
+        "features": [
+          "GHI",
+          "SunlightTime/daylength",
+          "sunlightTime",
+          "pressure",
+          "isSun"
+        ],
+        "metrics": {
+          "rmse": 331.5945385570444,
+          "mae": 136.00979906398695,
+          "r2": 0.8996095272072078
+        }
+      },
+      "MutualInfo": {
+        "features": [
+          "GHI",
+          "SunlightTime/daylength",
+          "sunlightTime",
+          "isSun",
+          "humidity"
+        ],
+        "metrics": {
+          "rmse": 332.3298281466921,
+          "mae": 136.36433120784622,
+          "r2": 0.8991638147352093
+        }
+      },
+      "RFE": {
+        "features": [
+          "GHI",
+          "temp",
+          "clouds_all",
+          "dayLength",
+          "SunlightTime/daylength"
+        ],
+        "metrics": {
+          "rmse": 326.12538920696517,
+          "mae": 131.92087695240824,
+          "r2": 0.9028937948767509
+        }
+      },
+      "L1-Lasso": {
+        "features": [
+          "GHI",
+          "sunlightTime",
+          "SunlightTime/daylength",
+          "humidity",
+          "dayLength"
+        ],
+        "metrics": {
+          "rmse": 332.66113542055797,
+          "mae": 133.80955106038076,
+          "r2": 0.8989626626790264
+        }
+      }
+    },
+    "naive_forecast_baselines": {
+      "persistence_t-1": {
+        "rmse": 316.59,
+        "r2": 0.9085
+      },
+      "seasonal_persistence_t-96": {
+        "rmse": 729.12,
+        "r2": 0.5146
+      },
+      "climatology_mean": {
+        "rmse": 1046.99,
+        "r2": -0.0008
+      }
+    },
+    "shift_invariant_approx_ratio": {
+      "E_min": -7.6314,
+      "E_max": 50.0,
+      "E_rand_mean": -0.0768,
+      "note": "shift-invariant eta=(E_max-E)/(E_max-E_min); =1 at optimum, 0 at worst",
+      "optimizers": {
+        "GA": {
+          "eta_old_Ebest_over_Eopt": 1.0,
+          "eta_shift_invariant_mean": 1.0,
+          "eta_shift_invariant_best": 1.0
+        },
+        "PSO": {
+          "eta_old_Ebest_over_Eopt": 1.0,
+          "eta_shift_invariant_mean": 1.0,
+          "eta_shift_invariant_best": 1.0
+        },
+        "QPSO": {
+          "eta_old_Ebest_over_Eopt": 1.0,
+          "eta_shift_invariant_mean": 0.9997,
+          "eta_shift_invariant_best": 1.0
+        },
+        "QIEA": {
+          "eta_old_Ebest_over_Eopt": 1.0,
+          "eta_shift_invariant_mean": 0.9999,
+          "eta_shift_invariant_best": 1.0
+        },
+        "QGA": {
+          "eta_old_Ebest_over_Eopt": 1.0,
+          "eta_shift_invariant_mean": 1.0,
+          "eta_shift_invariant_best": 1.0
+        },
+        "QAOA": {
+          "eta_old_Ebest_over_Eopt": 1.0,
+          "eta_shift_invariant_mean": 1.0,
+          "eta_shift_invariant_best": 1.0
+        }
+      }
+    },
+    "notes": "Added in revision to address Reviewer comments R5.1 (naive baselines), R5.2 (leakage), R5.3 (shift-invariant approx ratio), R5.4 (conventional FS)."
+  }
+}
